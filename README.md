@@ -162,3 +162,15 @@ The `alb` module creates an Application Load Balancer.
 
 4.  **Accessing the application:**
     Once the infrastructure is provisioned, you can access the application using the DNS name of the ALB, which is provided as an output. You can also use the domain names configured in the `route53` module.
+    ## Endpoint URLs
+
+Once the infrastructure is provisioned, the following endpoint URLs will be available:
+
+-   `https://ec2-alb-docker.<domain_name>`: This URL will route traffic to the Docker containers running on the EC2 instances.
+-   `https://ec2-alb-instance.<domain_name>`: This URL will route traffic to the NGINX web server running on the EC2 instances.
+-   `https://ec2-docker1.<domain_name>`: This URL will route traffic to the Docker container on the `web1` instance.
+-   `https://ec2-docker2.<domain_name>`: This URL will route traffic to the Docker container on the `web2` instance.
+-   `https://ec2-instance1.<domain_name>`: This URL will route traffic to the NGINX web server on the `web1` instance.
+-   `https://ec2-instance2.<domain_name>`: This URL will route traffic to the NGINX web server on the `web2` instance.
+
+Note: You will need to replace `<domain_name>` with the actual domain name you configured in the `variables.tf` file.
